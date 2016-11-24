@@ -9,8 +9,11 @@ LOAD = eatmem
 all: main.c gpio.c
 	$(CC) $^ $(CFLAGS) $(LDFLAGS) -o $(EXE)
 
+no_rt:
+	$(CC) no_rt_motor.c -o no_rt_motor
+
 load:
 	$(CC) eatmem.c -o $(LOAD)
 
 clean:
-	rm $(EXE) $(LOAD)
+	rm $(EXE) $(LOAD) no_rt_motor
